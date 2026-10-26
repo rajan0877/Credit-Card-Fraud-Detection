@@ -12,9 +12,7 @@ ENV/
 # Jupyter
 .ipynb_checkpoints/
 
-# Large datasets
-*.csv
-*.zip
+
 
 # Local files
 *.log
