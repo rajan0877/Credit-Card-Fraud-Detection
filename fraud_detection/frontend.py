@@ -1,3 +1,11 @@
+import sys
+from pathlib import Path
+
+# Ensure directory of this script is on sys.path
+BASE_DIR = Path(__file__).resolve().parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+
 import streamlit as st
 from utils import predict_fraud
 
@@ -423,3 +431,7 @@ if check:
     except (TypeError, ValueError) as e:
 
         st.error(str(e))
+
+    except Exception as e:
+
+        st.error(f"Prediction failed: {e}")

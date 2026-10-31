@@ -2,6 +2,7 @@ import joblib
 import pandas as pd
 import math
 import numbers
+from pathlib import Path
 
 def validate_input(self, data):
 
@@ -180,7 +181,8 @@ class FraudDetector:
         }
 
 # Load the trained fraud detector
-detector = joblib.load("fraud_detection/fraud_detection.pkl")
+BASE_DIR = Path(__file__).resolve().parent
+detector = joblib.load(BASE_DIR / "fraud_detection.pkl")
 
 print("Model loaded successfully.")
 print("Features:", detector.features)
